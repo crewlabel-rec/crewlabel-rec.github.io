@@ -262,7 +262,7 @@ html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--f
 <div id="op-trigger"></div>
 
 <script>
-var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxetxDjlKJ6D1e156mVC5CIWrn3AAEO4Bt0nJXeUrvaiXRWiidfQufbEb-x1sZEy6am/exec';
+var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbwtOy8AL8P0h6ZLW68NRPsw7RhuG3biRX85tKskmg8yDvoW6EZY1qXHJ6-6GnZorqc8/exec';
 
 var Q = [
   {id:1,text:"살면서 가끔은 사람들이 나를 오해하는 순간이 있을 수 있어요. 보통 어떻게 오해하고 왜 그런 오해가 생겼을까요?",intent:"자기객관화 여부 / 타인 해석 방향 / 관계 민감도 / 피해의식 가능성",answers:[
@@ -605,15 +605,21 @@ function saveToSheets() {
   btn.textContent = '저장 중...';
   btn.classList.add('saving');
   fetch(SHEETS_URL, {
-    method:'POST', mode:'no-cors',
-    headers:{'Content-Type':'application/json'},
+    method:'POST',
+    headers:{'Content-Type':'text/plain'},
     body:JSON.stringify(payload)
-  }).then(function(){
-    btn.textContent = '✓ 저장 완료';
-    btn.classList.remove('saving');
-    btn.classList.add('saved');
+  }).then(function(res){ return res.json(); })
+  .then(function(result){
+    if(result && result.result === 'success'){
+      btn.textContent = '✓ 저장 완료';
+      btn.classList.remove('saving');
+      btn.classList.add('saved');
+    } else {
+      btn.textContent = '⚠ 저장 실패 — 다시 시도';
+      btn.classList.remove('saving');
+    }
   }).catch(function(){
-    btn.textContent = '저장 실패 — 다시 시도';
+    btn.textContent = '⚠ 저장 실패 — 다시 시도';
     btn.classList.remove('saving');
   });
 }
