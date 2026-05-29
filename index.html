@@ -72,6 +72,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
 
 /* ── STUDIO ── */
 .studio-intro { font-size: clamp(13px, 3.5vw, 14px); color: #555; line-height: 1.8; margin-bottom: 20px; }
+.studio-subtitle { font-size: clamp(10px, 2.8vw, 10px); color: #999; line-height: 1.8; margin-bottom: 14px; font-style: italic; }
 .studio-block { margin-bottom: 24px; }
 .studio-block:last-child { margin-bottom: 0; }
 .studio-block-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 0.5px solid rgba(0,0,0,0.08); }
@@ -103,10 +104,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
 .recruit-card .rc-title { font-size: clamp(13px, 3.5vw, 15px); font-weight: 500; color: #fff; margin-bottom: 6px; line-height: 1.4; }
 .recruit-card .rc-desc { font-size: clamp(11px, 2.8vw, 12px); color: rgba(255,255,255,0.45); line-height: 1.65; }
 .recruit-note { margin-top: 14px; font-size: clamp(11px, 2.8vw, 12px); color: rgba(255,255,255,0.35); line-height: 1.7; text-align: center; }
+.recruit-wide-card { margin-top: 14px; background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 14px 16px; font-size: clamp(11px, 2.8vw, 12px); color: rgba(255,255,255,0.6); text-align: center; line-height: 1.6; }
 .slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
-.slot { background: rgba(255,255,255,0.05); border: 0.5px solid rgba(255,255,255,0.1); border-radius: 8px; padding: clamp(10px,3vw,14px) 8px; text-align: center; }
+.slot { background: rgba(255,255,255,0.05); border: 0.5px solid rgba(168,240,208,0.3); border-radius: 8px; padding: clamp(10px,3vw,14px) 8px; text-align: center; }
 .slot .sn { font-size: clamp(13px, 3.5vw, 16px); font-weight: 500; color: #a8f0d0; }
 .slot .sd { font-size: clamp(9px, 2.3vw, 11px); color: rgba(255,255,255,0.4); margin-top: 4px; line-height: 1.5; }
+.slot .sb { display: inline-block; background: rgba(168,240,208,0.15); border: 0.5px solid rgba(168,240,208,0.3); border-radius: 20px; font-size: clamp(8px,2vw,9px); color: #a8f0d0; padding: 2px 8px; margin-bottom: 7px; }
 
 /* ── PROCESS ── */
 .process-list { margin-top: 18px; display: flex; flex-direction: column; }
@@ -278,8 +281,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
 <!-- 스튜디오 -->
 <div class="section">
   <div class="section-tag">크루레이블 스튜디오</div>
-  <h2>방송 시작부터 끝까지, 모든 준비가 갖춰진 공간입니다</h2>
-  <p class="studio-intro">카메라 한 대 없어도, 마이크 사용법을 몰라도 괜찮습니다. 서울 광진구에 위치한 크루레이블 전용 스튜디오는 연출 및 촬영 감독 10년 경력의 운영자가 직접 세팅한 전문 방송 환경입니다. 크루레이블은 최대 6인의 다인 팟캐스트를 지원하며, 출연 인원과 에피소드 성격에 따라 두 개의 스튜디오를 유연하게 운영합니다.</p>
+  <h2>마음 한구석에 묻어둔 방송인의 꿈!<br><em>"당신의 이야기가 세상에 담기는 공간"</em></h2>
+  <p class="studio-intro">장기간 정기적인 촬영을 이어가야 하는 출연진의 누적 피로를 줄이기 위해, 접근성이 뛰어난 서울 광진구 더블역세권(도보 3분 거리)에 전용 스튜디오를 구축하여 출연진이 쾌적한 상태에서 촬영에 임할 수 있도록 하였습니다. 또한 본 스튜디오는 연출 및 촬영 감독 10년 경력의 운영자가 직접 세팅한 전문 방송 환경으로, 출연 인원과 에피소드 성격에 따라 두 개의 스튜디오를 유연하게 운영합니다.</p>
 
   <div class="studio-block">
     <div class="studio-block-header">
@@ -322,7 +325,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
       <div class="spec-item"><div class="sv">멀티카메라 4대</div><div class="sl">전문 조명 풀세트</div></div>
       <div class="spec-item"><div class="sv">슈어 SM7B</div><div class="sl">고성능 수음 마이크</div></div>
     </div>
-    <div class="studio-desc"><strong>감성 팟캐스트 방송 세트</strong>로 3인 이하 팀이 사용하는 공간입니다. 따뜻한 분위기의 인테리어와 자연스러운 공간 구성으로, 어떤 주제의 콘텐츠라도 편안하고 몰입감 있게 풀어낼 수 있는 환경을 조성합니다. 팀 구성과 에피소드 성격에 따라 두 스튜디오를 유연하게 전환하여 사용합니다.</div>
+    <div class="studio-desc"><strong>감성 팟캐스트 방송 세트</strong>로 3인 이하 팀이 사용하는 공간입니다. 특히 이 공간은 출연진 간의 '숨겨진 케미스트리'를 극대화하는 곳입니다. 크루레이블의 여러 팀 속에서 서로 호흡과 시너지가 맞을 최고의 멤버들을 발견하여, 기존 팀 활동과 시너지를 이루는 2~3인 중심의 특별한 스페셜 팀을 새롭게 매칭합니다.<br>단순히 말을 잘하는 것을 넘어 서로의 호흡과 리액션이 완성된 이들이 모이는 곳이기에, 각기 다른 팀의 매력적인 파트너들이 한데 뭉쳐 서로를 더욱 빛내줍니다. 이곳에서 다져진 깊은 내공은 다시 각자의 팀으로 기분 좋은 에너지를 불어넣으며, 결국 한층 더 깊은 몰입감과 완성도 높은 콘텐츠를 탄생시킵니다.</div>
   </div>
 </div>
 
@@ -340,7 +343,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
   </tr></table>
   <div class="op-quote">
     "광고와 뮤직비디오 현장에서 연출과 촬영감독으로 10년을 보냈습니다. 수많은 사람들과 호흡하며 느낀 건, 결국 좋은 콘텐츠는 '사람'으로부터 시작된다는 사실이었습니다.<br><br>
-    크루레이블은 단순히 영상을 만드는 채널이 아닙니다. 각자의 이야기와 가능성을 콘텐츠로 담아내고, 함께 성장과 성취를 만들어가기 위해 스스로 시작한 프로젝트입니다.<br><br>
+    크루레이블은 단순히 영상을 만드는 채널이 아닙니다. 일상을 살아가는 평범한 당신이 숨겨진 자아와 매력을 발굴하고, 그것이 콘텐츠 시장 안에서 자립할 수 있는 강력한 개인 브랜드로 성장할 수 있도록 스스로 시작한 프로젝트입니다.<br><br>
     저는 제가 가진 경험과 감각을 아낌없이 쏟아, 크루레이블을 믿고 함께해주시는 분들의 인생에 의미 있는 전환점이 되어드리고 싶습니다."
   </div>
   <div class="op-careers">
@@ -353,27 +356,27 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
 
 <!-- 모집 현황 -->
 <div class="dark-section">
-  <div class="section-tag">지금 모집 현황</div>
+  <div class="section-tag">그래도 망설여 지시나요?</div>
   <h2>"이거 내가 할 수 있을까?" 고민하지 마세요</h2>
-  <p>방송 경험과 매력 정도에 따라 최적의 팀으로 배정해 드립니다.</p>
+  <p>단발성 프로젝트가 아닌, 장기적인 로드맵을 바탕으로 지속 가능한 성장을 준비한 프로그램입니다.</p>
   <div class="recruit-cards">
     <div class="recruit-card">
-      <div class="rc-tag">방송 경험 없음 · 입문자</div>
+      <div class="rc-tag">방송 경험 없음 · 입문자 · 성장형 스타터</div>
       <div class="rc-title">4~6인 팀 배정</div>
       <div class="rc-desc">팀워크를 배경으로 내 매력을 발산할 수 있도록 환경을 조성합니다.</div>
     </div>
     <div class="recruit-card">
-      <div class="rc-tag">방송 경험 있음 · 프로 방송인 느낌</div>
+      <div class="rc-tag">방송 경험 있음 · 빌드업 매칭 크루</div>
       <div class="rc-title">1~3인 팀 배정</div>
       <div class="rc-desc">매력 발산의 상한선을 높여 더 집중된 포맷으로 운영합니다.</div>
     </div>
   </div>
+  <div class="recruit-wide-card">녹화일에는 아래와 같이 운영하여 당신의 성장을 돕습니다.</div>
   <div class="slots">
-    <div class="slot"><div class="sn">주 1회</div><div class="sd">촬영 참여<br>2~3시간</div></div>
-    <div class="slot"><div class="sn">6인 이내</div><div class="sd">팀 단위 운영</div></div>
-    <div class="slot"><div class="sn">20대~60대</div><div class="sd">모두 신청 가능</div></div>
+    <div class="slot"><div class="sb">방송스킬교육</div><div class="sn">방송 텐션 업</div><div class="sd">방송 호흡을 배우는<br>스킬 매니징</div></div>
+    <div class="slot"><div class="sb">브레인스토밍</div><div class="sn">아이디어 빌드업</div><div class="sd">내가 준비한 이야기를<br>팀원과 다듬는 시간</div></div>
+    <div class="slot"><div class="sb">팀원간 피드백</div><div class="sn">애프터 시너지</div><div class="sd">업로드 후 팀원간<br>채워주는 피드백 회의</div></div>
   </div>
-  <div class="recruit-note">크루레이블은 운영할 수 있는 팀의 수가 무한하지 않습니다.<br>무분별하게 팀을 구성하지는 않지만, 열심히 하고자 하시는 분이라면 제한을 두지도 않습니다.</div>
 </div>
 
 <!-- 진행 절차 -->
@@ -386,23 +389,23 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
   <div class="process-list">
     <div class="process-step">
       <div class="ps-num">1</div>
-      <div class="ps-body"><div class="pt">신청 → 검토</div><div class="pd">신청서를 하나하나 세심히 살피고 1:1 미팅을 제안합니다.</div></div>
+      <div class="ps-body"><div class="pt">신청 → 검토</div><div class="pd">당신이 어떤 사람인지를 세심히 살피고 1:1 미팅을 제안합니다.</div></div>
     </div>
     <div class="process-step">
       <div class="ps-num">2</div>
-      <div class="ps-body"><div class="pt">1:1 미팅 → 팀 구성</div><div class="pd">신청자의 강점·매력·성향을 파악해 가장 시너지가 날 수 있는 인원으로 조합합니다.</div></div>
+      <div class="ps-body"><div class="pt">1:1 미팅 → 팀 구성</div><div class="pd">신청자의 강점·매력·성향을 파악해 가장 시너지가 날 수 있는 팀으로 조합합니다. 동시에 신청자는 크루레이블이 나와 맞는지에 대한 궁금증을 해소할 수 있습니다.</div></div>
     </div>
     <div class="process-step">
       <div class="ps-num">3</div>
-      <div class="ps-body"><div class="pt">첫 OT 모임 → 모의 방송</div><div class="pd">팀원을 처음 만나고, 모의 방송을 통해 팀워크를 다집니다. 방송 스킬 교육도 함께 진행합니다.</div></div>
+      <div class="ps-body"><div class="pt">팀 구성 & OT</div><div class="pd">성향 데이터를 분석해 시너지가 날 수 있는 팀이 구성되면, 첫 OT를 통해 방송 구조와 역할을 함께 설계합니다.</div></div>
     </div>
     <div class="process-step">
       <div class="ps-num">4</div>
-      <div class="ps-body"><div class="pt">팀 케미 완성 → 공개 업로드 시작</div><div class="pd">팀워크가 충분히 다져진 시점에 공개 업로드 방송이 시작됩니다. 모의 방송 중 더 맞는 팀으로 재배치될 수 있습니다.</div></div>
+      <div class="ps-body"><div class="pt">모의 방송</div><div class="pd">실제 업로드 전 최대 4주. 카메라 앞에서 내 캐릭터를 발견하고, 팀 케미를 위한 라포 형성 기간입니다.</div></div>
     </div>
     <div class="process-step">
       <div class="ps-num">5</div>
-      <div class="ps-body"><div class="pt">업로드 후 피드백 → 성장</div><div class="pd">업로드된 영상을 모니터링하며 미흡한 점을 체크하고 다음 방송에서 개선합니다. 회차를 거듭할수록 성장합니다.</div></div>
+      <div class="ps-body"><div class="pt">정식 업로드 → 지속적 피드백, 브레인스토밍, 방송스킬교육</div><div class="pd">준비가 됐다고 판단되면 방송이 업로드됩니다. 지속적인 모니터링, 브레인스토밍, 교육이 함께 진행하며, 회차를 거듭할수록 성장합니다.</div></div>
     </div>
   </div>
 </div>
@@ -410,7 +413,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
 <!-- 당신이 할 일 -->
 <div class="section">
   <div class="section-tag">당신이 해야 할 일</div>
-  <h2>기획, 촬영, 편집, 운영 — 아무것도 하실 필요 없습니다</h2>
+  <h2>주 1회 방송, 2~3시간 녹화</h2>
 
   <div style="margin-top:14px;">
     <div class="slc-outer">
@@ -444,7 +447,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
     <p>매주 단톡방에서 그 주의 방송 주제를 안내해 드립니다.<br><br>
     생업에 종사하시면서 이번 주 방송에서 나는 해당 주제에 대해 어떤 이야기를 펼칠까? 어떤 매력을 발산할 수 있을까? 내 방송 페르소나는 어떤 가치를 추구할까?<br><br>
     이런 <strong>즐거운 상상으로 일주일을 보내시다가</strong>, 방송날 스튜디오에 오시면 됩니다.</p>
-    <div class="todo-note">📌 녹화일에는 방송 스킬 교육 1시간이 함께 진행됩니다. 회차를 거듭하며 프로 방송인으로 거듭나게 됩니다.</div>
+    <div class="todo-note">📌 주제는 제작진이 먼저 치열하게 고민합니다. 시장의 흐름과 트렌드를 다각도로 분석하고, 클릭을 부르는 매력적인 주제와 레퍼런스 자료를 함께 전달드립니다.</div>
   </div>
 </div>
 
@@ -481,10 +484,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
 
 <!-- 엔딩 -->
 <div class="ending">
+  <div class="section-tag" style="color:rgba(255,255,255,0.35);">크루레이블과 함께</div>
+  <h2 style="color:#fff; margin-bottom:16px;">이번엔, 혼자가 아닙니다</h2>
   <p class="ending-quote">
-    크루레이블의 동료는 방송이 끝난 뒤에도 함께할 사람들입니다.<br>
-    단순한 콘텐츠 협업을 넘어, <em>인생의 동반자</em>가 되는 인맥의 시작.<br>
-    나중에 독립해서 자립해도, 그때도 함께할 동료를 여기서 만나게 됩니다.
+    하고 싶었던 일 대신, 해야 하는 일을 하며 살고 계신가요? 그래서 유튜브에 도전해봤지만, 지속할 수 없는 구조적 한계에 부딪혀 포기한 적 있으신가요? 콘텐츠를 지속하는 힘은 의지만으로 쉽게 되지는 않는 것 같습니다. <em>그 무거운 부담을 이제는 혼자 짊어지지 않으셔도 됩니다.</em><br><br>
+    크루레이블이 말하는 '함께'는 단순한 친목이나 일회성 협업이 아닙니다. 막막한 기획이나 끈기의 한계에 부딪혀 방송을 포기하지 않도록, <em>뒤에서 단단하게 받쳐주는 구조적인 안전망입니다.</em><br><br>
+    이곳에서는 크루레이블의 시스템뿐만 아니라, 나와 같은 고민을 하고 같은 방향을 바라보는 동료들을 자연스럽게 만나게 됩니다. 사람과 사람 사이의 관계를 다루는 콘텐츠를 함께 만든다는 것은, <em>서로의 리스크를 나누고 성장을 이끄는 확실한 페이스메이커를 얻는 일입니다.</em> 지치지 않고 끝까지 완주할 수 있도록 서로의 버팀목이 되어줄 끈끈한 연대. <em>혼자서는 어려웠던 그 여정을 크루레이블에서 안정적으로 시작해 보세요.</em>
   </p>
 
   <div style="margin-bottom:16px;">
@@ -517,6 +522,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
     <div class="eb"><strong>생업 유지 + 유튜브</strong>실패해도 타격 없는 구조 안에서 가능성을 시험합니다</div>
     <div class="eb"><strong>수익 + 사업으로 발전</strong>채널 성장 시 수익과 사업화에 대한 이야기도 1:1 미팅 시 안내해 드립니다.</div>
   </div>
+  <p style="margin-top:18px; font-size:clamp(10px,2.5vw,11px); color:rgba(255,255,255,0.25); line-height:1.7; text-align:center;">단, 한 가지 말씀드리고 싶은 점이 있습니다. 이 시스템은 많은 리소스가 소요되는 만큼, 모든 분과 함께할 수는 없습니다.<br>팀 매칭을 무분별하게 진행하지는 않지만, 진정성을 가지고 열심히 참여하실 분이라면 언제든 환영합니다.</p>
 </div>
 
 <!-- 신청 폼 -->
@@ -529,7 +535,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
     <h2>출연 신청하기</h2>
     <p>간단한 자기소개를 남겨주시면 빠른 시간 안에 연락드리겠습니다.</p>
     <div class="not-contract">
-      <p>📌 <strong>신청 = 계약이 아닙니다.</strong> 부담 없이 이야기 나눠볼 수 있는 1:1 미팅 신청입니다. 언제든 거절 가능합니다.</p>
+      <p>📌 <strong>신청 = 계약이 아닙니다.</strong> 부담 없이 이야기 나눠볼 수 있는 1:1 미팅 신청입니다. 언제든 거절 가능합니다.<br>(모집 연령 20대~60대)</p>
     </div>
     <div class="form-divider">기본 정보</div>
     <div class="form-grid">
