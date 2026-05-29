@@ -186,6 +186,107 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
 .slc-count { display: none; }
 .slc-arrows { display: none; }
 
+/* ── JOB TABS (직업별 걱정 섹션) ── */
+.job-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.job-tab {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 22px 8px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+.job-tab .jt-name {
+  font-size: clamp(13px,3.5vw,15px);
+  font-weight: 500;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 6px;
+  transition: color 0.2s;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+.job-tab .jt-hint {
+  font-size: clamp(10px,2.5vw,11px);
+  color: rgba(255,255,255,0.25);
+  transition: color 0.2s;
+}
+.job-tab.active {
+  background: rgba(168,240,208,0.08);
+  border-color: rgba(168,240,208,0.45);
+}
+.job-tab.active .jt-name { color: #a8f0d0; }
+.job-tab.active .jt-hint { color: rgba(168,240,208,0.55); }
+.job-tab.active::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 3px;
+  background: #a8f0d0;
+  border-radius: 0 0 4px 4px;
+}
+.job-arrow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 10px 0;
+}
+.job-arrow-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 16px;
+}
+.job-arrow-cell .jarrow-icon {
+  width: 0; height: 0;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid rgba(168,240,208,0.4);
+  display: none;
+}
+.job-arrow-cell.active .jarrow-icon { display: block; }
+.job-panels { margin-top: 0; }
+.job-panel { display: none; }
+.job-panel.active {
+  display: block;
+  background: rgba(168,240,208,0.06);
+  border: 1px solid rgba(168,240,208,0.2);
+  border-radius: 12px;
+  padding: 20px 20px 22px;
+}
+.job-concern-q {
+  font-size: clamp(13px,3.5vw,14px);
+  color: rgba(255,255,255,0.82);
+  line-height: 1.8;
+  font-style: italic;
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+.job-answer-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: rgba(168,240,208,0.6);
+  margin-bottom: 10px;
+}
+.job-answer-text {
+  font-size: clamp(12px,3.2vw,13px);
+  color: rgba(255,255,255,0.85);
+  line-height: 1.9;
+  padding: 0 4px;
+}
+
 .op-section { background: #fff; border: 0.5px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 28px; margin-bottom: 10px; }
 .op-top { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
 .op-photo { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid rgba(168,240,208,0.4); }
@@ -279,10 +380,59 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Pretendard', 'Noto Sans 
   </div>
 </div>
 
+<!-- 직업별 최대 걱정 -->
+<div class="dark-section">
+  <div class="section-tag">그래도 걱정되요</div>
+  <h2>직업별 최대 걱정</h2>
+  <p style="margin-bottom:20px;">직장인, 자영업자, 사업가, 대학생, 취준생 각자의 고민은 다릅니다</p>
+
+  <div class="job-tabs">
+    <div class="job-tab active" onclick="switchJob(this,'worker',0)">
+      <div class="jt-name">직장인</div>
+      <div class="jt-hint">👆 눌러서 확인</div>
+    </div>
+    <div class="job-tab" onclick="switchJob(this,'self',1)">
+      <div class="jt-name">자영업자&amp;사업가</div>
+      <div class="jt-hint">👆 눌러서 확인</div>
+    </div>
+    <div class="job-tab" onclick="switchJob(this,'student',2)">
+      <div class="jt-name">대학생&amp;취준생</div>
+      <div class="jt-hint">👆 눌러서 확인</div>
+    </div>
+  </div>
+
+  <div class="job-arrow">
+    <div class="job-arrow-cell active"><div class="jarrow-icon"></div></div>
+    <div class="job-arrow-cell"><div class="jarrow-icon"></div></div>
+    <div class="job-arrow-cell"><div class="jarrow-icon"></div></div>
+  </div>
+
+  <div class="job-panels">
+    <div class="job-panel active" id="job-worker">
+      <div class="job-concern-q">"회사 겸업 금지 사칙 때문에 눈치도 보이고 걱정되는데, 평범한 직장인인 제가 굳이 출연해도 괜찮을까요?"</div>
+      <div class="job-answer-label">크루레이블의 제안</div>
+      <div class="job-answer-text">네, 맞습니다. 사내 겸업 금지 조항이 있다면 주저하시는 것이 당연합니다. 안정적인 생업과 직장 생활이 무엇보다 최우선이니까요.<br><br>다만, 한 번쯤 생각해 볼 부분은 있습니다. 평생직장이 사라진 요즘, 가속화되는 AI 기술을 보며 조직 내 대체 가능성을 고민하는 직장인 분들이 늘고 있습니다. 자연스럽게 '언젠가 내 일(비즈니스)을 해야 하지 않을까'라는 생각으로, 회사 밖에서 나의 진짜 경쟁력을 미리 확인해 보고 싶어 하는 분들도 많아지고 있죠.<br><br>겸업 금지가 마음에 걸리신다면 크게 걱정하지 않으셔도 됩니다. 크루레이블은 초기 진입 단계에서는 단순히 수익 창출만을 목적으로 활동하는 부업이 아닙니다. 전문 제작 인프라를 지원받아 자신의 매력을 확인하고 서사를 기록하는 일종의 '취미형 토크 프로젝트'로 안전하게 출발하기 때문입니다.<br><br>조직 안에서는 대체 가능한 직급 중 하나일지 몰라도, 크루레이블 안에서 당신은 독보적인 분위기를 가진 주인공이 될 수 있습니다. 본업을 안전하게 지키면서 미래를 위해 회사 밖의 가능성을 부담 없이 타진해 보는 실험실, 크루레이블이 확실한 대안이 되어 드립니다.</div>
+      <img src="https://crewlabel-rec.github.io/images/official.png" alt="직장인 이미지" style="width:100%; border-radius:10px; margin-top:16px; display:block;">
+    </div>
+    <div class="job-panel" id="job-self">
+      <div class="job-concern-q">"매장 돌보고 사업체 운영하기도 1분 1초가 부족한데, 굳이 시간과 에너지를 써가며 출연할 만큼 비즈니스적인 실익이 있을까요?"</div>
+      <div class="job-answer-label">크루레이블의 제안</div>
+      <div class="job-answer-text">네, 맞습니다. 하루하루가 곧 매출이자 비용인 자영업자와 사업가분들에게 '시간의 기회비용'은 그 무엇보다 무겁다는 것을 잘 알고 있습니다. 실질적인 가치가 없다면 움직일 이유가 없으시니까요.<br><br>하지만 한 번쯤 비즈니스 관점에서 전환해 볼 부분은 있습니다. 단순히 동네 가게에 머무는 것이 아니라 브랜드를 키우고 사업 확장을 꿈꾸는 자영업자분들이 늘고 있지만, 나를 효과적으로 알릴 홍보의 기회는 늘 부족합니다. 사업가분들 역시 매일 갇혀 있는 환경 속에서 새로운 업계의 인맥을 넓히고 신선한 사업적 영감을 얻을 통로가 마땅치 않은 경우가 많죠.<br><br>크루레이블은 당신의 소중한 시간을 기회비용으로 바꾸는 영리한 레버리지가 되어 드립니다. 복잡한 기획이나 준비 과정 없이, 편안한 대화와 토크에 참여하는 것만으로도 본연의 매력과 전문성이 자연스럽게 묻어날 수 있도록 판을 짜기 때문입니다.<br><br>좁은 일터 안에서는 고군분투하는 1인칭 플레이어일지 몰라도, 크루레이블 안에서 당신은 수많은 대중과 잠재적 파트너에게 신뢰를 주는 매력적인 브랜드 예비 창업자이자 리더로 각인될 수 있습니다. 가장 효율적인 인풋으로 내 비즈니스의 외연을 확장하고 새로운 성장의 실마리를 찾는 기회, 크루레이블에서 가볍게 시작해 보세요.</div>
+      <img src="https://crewlabel-rec.github.io/images/businessman.png" alt="자영업자&사업가 이미지" style="width:100%; border-radius:10px; margin-top:16px; display:block;">
+    </div>
+    <div class="job-panel" id="job-student">
+      <div class="job-concern-q">"취업 준비와 학업으로 1분 1초가 아까운 시기인데, 굳이 시간과 에너지를 써가며 출연할 가치가 있을까요?"</div>
+      <div class="job-answer-label">크루레이블의 제안</div>
+      <div class="job-answer-text">네, 맞습니다. 당장 자소서 쓰고 스펙 쌓기도 바쁜 시기인 만큼, 무의미하게 시간을 낭비하는 것은 아닌지 불안한 마음이 드는 것이 당연합니다.<br><br>하지만 한 번만 관점을 바꿔 생각해 볼 부분이 있습니다. 아무리 바빠도 친구들을 만나 수다를 떨고 스트레스를 푸는 휴식 시간은 존재하기 마련입니다. 다만, 그 시간 뒤에 우리에게 남는 것은 무엇인가요?<br><br>크루레이블은 바로 그 시간을 다르게 써보자는 제안을 합니다. 친구들과의 대화가 그저 지나가 버리는 '소비성 시간'이었다면, 크루레이블에서의 토크는 나만의 매력과 서사가 온전히 기록되는 '생산적인 기회'가 됩니다. 이러한 기록들이 하나씩 축적되었을 때, 텍스트로 된 자소서와 흔한 스펙으로는 결코 넘볼 수 없던 새로운 세상이 열리는 경우를 우리는 이미 미디어를 통해 수없이 목격해 왔습니다.<br><br>스펙 경쟁이라는 좁은 울타리 안에서는 수많은 지원자 중 한 명일지 몰라도, 크루레이블 안에서 당신은 대체 불가능한 스토리의 주인공이 될 수 있습니다. 무의미하게 흘려보내던 휴식 시간을 내 미래를 바꿀 뜻밖의 치트키로 바꾸는 기회, 크루레이블에서 가볍게 시작해 보세요.</div>
+      <img src="https://crewlabel-rec.github.io/images/Job%20seeker.png" alt="대학생&취준생 이미지" style="width:100%; border-radius:10px; margin-top:16px; display:block;">
+    </div>
+  </div>
+</div>
+
 <!-- 스튜디오 -->
 <div class="section">
   <div class="section-tag">크루레이블 스튜디오</div>
-  <h2>마음 한구석에 묻어둔 방송인의 꿈!<br><em>"당신의 이야기가 세상에 담기는 공간"</em></h2>
+  <h2><em>"당신의 이야기가 세상에 담기는 공간"</em></h2>
   <p class="studio-intro">장기간 정기적인 촬영을 이어가야 하는 출연진의 누적 피로를 줄이기 위해, 접근성이 뛰어난 서울 광진구 더블역세권(도보 3분 거리)에 전용 스튜디오를 구축하여 출연진이 쾌적한 상태에서 촬영에 임할 수 있도록 하였습니다. 또한 본 스튜디오는 연출 및 촬영 감독 10년 경력의 운영자가 직접 세팅한 전문 방송 환경으로, 출연 인원과 에피소드 성격에 따라 두 개의 스튜디오를 유연하게 운영합니다.</p>
 
   <div class="studio-block">
@@ -651,6 +801,18 @@ function slcGo(id, idx) {
 }
 function slcMove(id, dir) { slcGo(id, slcIdx[id] + dir); }
 
+
+function switchJob(tab, id, idx) {
+  var tabs = document.querySelectorAll('.job-tab');
+  var panels = document.querySelectorAll('.job-panel');
+  var arrows = document.querySelectorAll('.job-arrow-cell');
+  for (var i = 0; i < tabs.length; i++) { tabs[i].classList.remove('active'); }
+  for (var i = 0; i < panels.length; i++) { panels[i].classList.remove('active'); }
+  for (var i = 0; i < arrows.length; i++) { arrows[i].classList.remove('active'); }
+  tab.classList.add('active');
+  document.getElementById('job-' + id).classList.add('active');
+  arrows[idx].classList.add('active');
+}
 
 // FLOATING BUTTON
 const floatCta = document.getElementById('floatCta');
