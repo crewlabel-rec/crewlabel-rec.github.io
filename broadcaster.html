@@ -16,8 +16,8 @@
   --color-accent-text: #0a5c3a;
   --color-text: #fff;
   --color-text-main: #fff;
-  --color-text-sub: rgba(255,255,255,0.55);
-  --color-text-ter: rgba(255,255,255,0.3);
+  --color-text-sub: rgba(255,255,255,0.85);
+  --color-text-ter: rgba(255,255,255,0.55);
   --color-border: rgba(255,255,255,0.1);
   --light-bg: #fff;
   --light-surface: #f8f8f6;
@@ -275,7 +275,7 @@ body { background: #eceae6; color: var(--color-text); font-family: var(--font-sa
 .concern-tab.active { background: rgba(168,240,208,0.1); border-color: rgba(168,240,208,0.3); color: var(--color-accent); font-weight: 600; }
 .concern-panel { display: none; }
 .concern-panel.active { display: block; }
-.concern-question { font-size: clamp(12px,3.2vw,13px); color: rgba(255,255,255,0.5); font-style: italic; margin-bottom: 14px; padding: 10px 14px; background: rgba(255,255,255,0.04); border-radius: var(--radius-sm); word-break: keep-all; }
+.concern-question { font-size: clamp(12px,3.2vw,13px); color: rgba(255,255,255,0.85); font-style: italic; margin-bottom: 14px; padding: 10px 14px; background: rgba(255,255,255,0.04); border-radius: var(--radius-sm); word-break: keep-all; }
 .concern-answer { font-size: clamp(12px,3.2vw,13px); color: var(--color-text-sub); line-height: 1.8; word-break: keep-all; }
 
 /* ── 걱정 해소 — 공통 질문 ── */
@@ -306,9 +306,9 @@ body { background: #eceae6; color: var(--color-text); font-family: var(--font-sa
 .form-area > p { font-size: clamp(12px,3.2vw,13px); color: var(--color-text-sub); margin-bottom: 20px; line-height: 1.7; }
 .not-contract { background: rgba(168,240,208,0.1); border: 0.5px solid rgba(168,240,208,0.25); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 20px; }
 .not-contract p { font-size: clamp(11px,3vw,12px); color: rgba(168,240,208,0.85); line-height: 1.7; }
-.form-divider { font-size: clamp(10px,2.5vw,11px); color: rgba(255,255,255,0.25); letter-spacing: 0.08em; margin: 18px 0 14px; padding-bottom: 8px; border-bottom: 0.5px solid rgba(255,255,255,0.08); }
+.form-divider { font-size: clamp(10px,2.5vw,11px); color: rgba(255,255,255,0.55); letter-spacing: 0.08em; margin: 18px 0 14px; padding-bottom: 8px; border-bottom: 0.5px solid rgba(255,255,255,0.08); }
 .form-row { margin-bottom: 14px; }
-.form-row label { display: block; font-size: clamp(11px,3vw,12px); color: rgba(255,255,255,0.4); margin-bottom: 6px; }
+.form-row label { display: block; font-size: clamp(11px,3vw,12px); color: rgba(255,255,255,0.9); margin-bottom: 6px; }
 .form-row input, .form-row select, .form-row textarea {
   width: 100%; background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.15);
   border-radius: var(--radius-sm); padding: 11px 14px; color: #fff; font-size: clamp(13px,3.5vw,14px); font-family: inherit; outline: none;
@@ -564,13 +564,13 @@ body { background: #eceae6; color: var(--color-text); font-family: var(--font-sa
 .guild-tab .gt-name {
   font-size: clamp(14px,3.8vw,16px);
   font-weight: 500;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.85);
   margin-bottom: 6px;
   transition: color 0.2s;
 }
 .guild-tab .gt-hint {
   font-size: clamp(10px,2.5vw,11px);
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.45);
   transition: color 0.2s;
 }
 .guild-tab.active {
@@ -844,15 +844,15 @@ body { background: #eceae6; color: var(--color-text); font-family: var(--font-sa
   <div class="guild-tabs">
     <div class="guild-tab active" onclick="switchGuild(this,'actor',0)">
       <div class="gt-name">연기자</div>
-      <div class="gt-hint">👆 눌러서 확인</div>
+      <div class="gt-hint"><span style="font-size:13px;">👆</span> 눌러서 확인</div>
     </div>
     <div class="guild-tab" onclick="switchGuild(this,'announcer',1)">
       <div class="gt-name">아나운서</div>
-      <div class="gt-hint">👆 눌러서 확인</div>
+      <div class="gt-hint"><span style="font-size:13px;">👆</span> 눌러서 확인</div>
     </div>
     <div class="guild-tab" onclick="switchGuild(this,'comedian',2)">
       <div class="gt-name">개그맨</div>
-      <div class="gt-hint">👆 눌러서 확인</div>
+      <div class="gt-hint"><span style="font-size:13px;">👆</span> 눌러서 확인</div>
     </div>
   </div>
 
