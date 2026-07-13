@@ -1139,12 +1139,14 @@ body {
 
 <!-- ⑩ 신청 폼 -->
 <div class="form-area" id="form-area">
-  <h2>출연 신청하기</h2>
-  <p>간단한 자기소개를 남겨주시면 빠른 시간 안에 연락드리겠습니다.</p>
+  <div id="form-header">
+    <h2>출연 신청하기</h2>
+    <p>간단한 자기소개를 남겨주시면 빠른 시간 안에 연락드리겠습니다.</p>
 
-  <div class="not-contract">
-    <p>📌 <strong>신청 = 계약이 아닙니다.</strong> 부담 없이 이야기 나눠볼 수 있는 1:1 미팅 신청입니다. 언제든 거절 가능합니다.<br>
-    <span style="font-size:11px;opacity:0.6;">(모집 연령 20대~60대)</span></p>
+    <div class="not-contract">
+      <p>📌 <strong>신청 = 계약이 아닙니다.</strong> 부담 없이 이야기 나눠볼 수 있는 1:1 미팅 신청입니다. 언제든 거절 가능합니다.<br>
+      <span style="font-size:11px;opacity:0.6;">(모집 연령 20대~60대)</span></p>
+    </div>
   </div>
 
   <form id="apply-form" action="https://formspree.io/f/xdabyvey" method="POST">
@@ -1299,10 +1301,8 @@ body {
     <button type="submit" id="submit-btn" class="submit-btn" disabled style="opacity:0.4;cursor:not-allowed;">1:1 미팅 신청하기</button>
   </form>
 
-  <div id="success-msg" style="display:none;text-align:center;padding:40px 20px;">
-    <div style="font-size:32px;margin-bottom:12px;">✅</div>
-    <h3 style="color:var(--color-accent);margin-bottom:8px;">신청이 완료됐습니다!</h3>
-    <p style="font-size:13px;color:var(--color-text-sub);line-height:1.7;">빠른 시간 안에 연락드리겠습니다.<br>크루레이블에서 기다리겠습니다.</p>
+  <div id="success-msg" style="display:none;border-radius:12px;overflow:hidden;">
+    <img src="https://github.com/crewlabel-rec/crewlabel-rec.github.io/blob/main/images/Landing%20application%20form%20completion%20screen%20image.png?raw=true" style="width:100%;display:block;">
   </div>
 </div>
   <div class="footer">CREW LABEL © 2026 · 크루레이블 · 개인정보는 안전하게 보호됩니다</div>
@@ -1389,6 +1389,7 @@ function switchGuild(tab, id, idx) {
     }).then(function(r){
       if(r.ok){
         form.style.display = 'none';
+        document.getElementById('form-header').style.display = 'none';
         document.getElementById('success-msg').style.display = 'block';
         window.scrollTo({ top: document.getElementById('form-area').offsetTop - 20, behavior: 'smooth' });
       } else {
