@@ -209,6 +209,7 @@ body { font-family: 'GMarketSans', -apple-system, BlinkMacSystemFont, 'Pretendar
   cursor: pointer;
   transition: all 0.2s;
   position: relative;
+  overflow: hidden;
 }
 .job-tab .jt-name {
   font-size: clamp(13px,3.5vw,15px);
@@ -235,7 +236,7 @@ body { font-family: 'GMarketSans', -apple-system, BlinkMacSystemFont, 'Pretendar
 .job-tab.active::after {
   content: '';
   position: absolute;
-  top: -1px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 36px;
