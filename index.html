@@ -39,7 +39,7 @@ body { font-family: 'GMarketSans', -apple-system, BlinkMacSystemFont, 'Pretendar
 .float-cta.hidden-bottom { opacity: 0; pointer-events: none; }
 
 /* ── HERO ── */
-.hero { 
+.hero {
   background: #0a0a0a; color: #fff; padding: 0px 24px 40px; border-radius: 16px; margin-bottom: 10px; text-align: center;
   background-image: url('https://crewlabel-rec.github.io/images/studio%20with%20ai%20guest%2001.png');
   background-size: cover; background-position: center top;
@@ -1023,6 +1023,7 @@ function toggleLimit(header) {
     .then(function(res) { return res.json(); })
     .then(function(data) {
       if (data.success) {
+        gtag('event', 'submit_application', { 'page_title': document.title });
         document.getElementById('form-content').style.display = 'none';
         document.getElementById('success-msg').style.display = 'block';
         var floatCta = document.getElementById('float-cta');
