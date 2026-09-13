@@ -9,10 +9,10 @@
   gtag('js', new Date());
 
   gtag('config', 'G-EYWNWPDMSF');
-</script>  
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>크루레이블 — 방송인 출연자 모집</title>
+<title>크레블 방송인 출연자 모집</title>
 <style>
 /* ── BASE ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -777,7 +777,7 @@ body {
   <div class="hero-bg"></div>
   <div class="hero-content">
   <img class="hero-logo" id="logo-img" src="https://github.com/crewlabel-rec/crewlabel-rec.github.io/blob/main/images/crew%20label%20logo%20white%20text.png?raw=true" alt="크루레이블 로고">
-  
+
   <h1>AI가 방송인을 대체하지 못하는 단 하나,<br><em>사람과 사람 사이의 케미입니다.</em></h1>
   <p class="hero-sub"><span style="font-size:1.04em; line-height:1.6;">사람간의 케미는 혼자 만들 수 없습니다.</span><br>캐릭터와 캐릭터가 만났을 때, 매력적인 케미가 만들어집니다.<br>크루레이블은 그 순간을 설계하는 곳이며, 결국 시청자는 사람 사이에서 만들어지는 감정에 반응합니다.</p>
   <a href="#form-area" class="hero-btn">이미 영상을 보셨다면 바로 신청하기 →</a>
@@ -1441,6 +1441,7 @@ document.getElementById('apply-form').addEventListener('submit', function(e) {
   .then(function(res) { return res.json(); })
   .then(function(data) {
     if (data.success) {
+      gtag('event', 'submit_application', { 'page_title': document.title });
       form.style.display = 'none';
       document.getElementById('form-header').style.display = 'none';
       document.getElementById('success-msg').style.display = 'block';
