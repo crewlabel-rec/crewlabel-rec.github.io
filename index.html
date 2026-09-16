@@ -1016,6 +1016,15 @@ function toggleLimit(header) {
 
     var formData = new FormData(form);
 
+    // 구글 시트 자동 저장 (실패해도 신청 완료 화면에는 영향 없음)
+    fetch('https://script.google.com/macros/s/AKfycbyv4K4ooPFzdx25jnxwYwFHt1PlK1_GWrDpNkdu265Nl2yaFlfPVv-trci-9kUt9Xio/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    }).catch(function(err) {
+      console.log('구글 시트 저장 실패(무시):', err);
+    });
+
     fetch('https://api.staticforms.dev/submit', {
       method: 'POST',
       body: formData
