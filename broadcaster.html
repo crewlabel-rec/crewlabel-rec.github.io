@@ -1434,6 +1434,27 @@ document.getElementById('apply-form').addEventListener('submit', function(e) {
 
   var formData = new FormData(form);
 
+  // 구글 시트 자동 저장용 데이터 — 일반인용 시트 컬럼명에 맞춰 이름표만 변환
+  var sheetData = new FormData();
+  formData.forEach(function(value, key) {
+    if (key === '활동분야및경력') {
+      sheetData.append('직업', value);
+    } else if (key === '궁금한점') {
+      sheetData.append('제작진에게', value);
+    } else {
+      sheetData.append(key, value);
+    }
+  });
+
+  // 구글 시트 자동 저장 (실패해도 신청 완료 화면에는 영향 없음)
+  fetch('https://script.google.com/macros/s/AKfycbyv4K4ooPFzdx25jnxwYwFHt1PlK1_GWrDpNkdu265Nl2yaFlfPVv-trci-9kUt9Xio/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: sheetData
+  }).catch(function(err) {
+    console.log('구글 시트 저장 실패(무시):', err);
+  });
+
   fetch('https://api.staticforms.dev/submit', {
     method: 'POST',
     body: formData
