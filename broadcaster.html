@@ -1212,7 +1212,7 @@ body {
         <input type="text" name="이름" placeholder="홍길동" required>
       </div>
       <div class="form-row"><label>연락처</label>
-        <input type="tel" name="연락처" placeholder="010-0000-0000" required>
+        <input type="tel" name="연락처" id="phone-input" placeholder="010-0000-0000" required maxlength="13">
       </div>
     </div>
     <div class="form-row"><label>이메일 주소</label>
@@ -1422,6 +1422,26 @@ function switchGuild(tab, id, idx) {
   document.getElementById('guild-' + id).classList.add('active');
   arrows[idx].classList.add('active');
 }
+
+/* 연락처 자동 하이픈 삽입 */
+(function(){
+  var phoneInput = document.getElementById('phone-input');
+  if(!phoneInput) return;
+  phoneInput.addEventListener('input', function(e){
+    var digits = e.target.value.replace(/[^0-9]/g, '').slice(0, 11);
+    var formatted = digits;
+    if (digits.length === 11) {
+      formatted = digits.slice(0,3) + '-' + digits.slice(3,7) + '-' + digits.slice(7,11);
+    } else if (digits.length === 10) {
+      formatted = digits.slice(0,3) + '-' + digits.slice(3,6) + '-' + digits.slice(6,10);
+    } else if (digits.length > 6) {
+      formatted = digits.slice(0,3) + '-' + digits.slice(3,6) + '-' + digits.slice(6);
+    } else if (digits.length > 3) {
+      formatted = digits.slice(0,3) + '-' + digits.slice(3);
+    }
+    e.target.value = formatted;
+  });
+})();
 
 /* Formspree Ajax 제출 */
 document.getElementById('apply-form').addEventListener('submit', function(e) {
